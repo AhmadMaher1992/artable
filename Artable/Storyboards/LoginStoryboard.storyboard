@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4C9-r5-Zac">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,16 +10,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--LoginVC-->
         <scene sceneID="bWS-Pg-quI">
             <objects>
-                <viewController id="nj2-E0-ucY" sceneMemberID="viewController">
+                <viewController id="nj2-E0-ucY" customClass="LoginVC" customModule="Artable" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rVV-oB-8ql">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_left1" translatesAutoresizingMaskIntoConstraints="NO" id="skB-R9-s0I">
-                                <rect key="frame" x="0.0" y="88" width="375.00000000000045" height="724"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="724"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="XA6-LF-6RJ">
                                 <rect key="frame" x="20" y="107.99999999999997" width="335" height="325.33333333333326"/>
@@ -118,10 +118,10 @@
             </objects>
             <point key="canvasLocation" x="730" y="146"/>
         </scene>
-        <!--View Controller-->
+        <!--RegisterVC-->
         <scene sceneID="tFX-Jp-Jnb">
             <objects>
-                <viewController id="ohZ-if-Axx" sceneMemberID="viewController">
+                <viewController id="ohZ-if-Axx" customClass="RegisterVC" customModule="Artable" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lyG-gN-tZx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -184,21 +184,24 @@
                                         <state key="normal" title="Register">
                                             <color key="titleColor" red="0.95294117649999999" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="registerClicked:" destination="ohZ-if-Axx" eventType="touchUpInside" id="mhs-66-RDJ"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="wcY-UT-G2x">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="wcY-UT-G2x">
                                 <rect key="frame" x="169" y="402.33333333333331" width="37" height="37"/>
                                 <color key="color" red="0.2274509804" green="0.2666666667" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="red_check" translatesAutoresizingMaskIntoConstraints="NO" id="FFf-f3-Ex9">
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="red_check" translatesAutoresizingMaskIntoConstraints="NO" id="FFf-f3-Ex9">
                                 <rect key="frame" x="314" y="249" width="35" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="2zY-s4-sUv"/>
                                     <constraint firstAttribute="width" constant="35" id="zbl-se-CRj"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="red_check" translatesAutoresizingMaskIntoConstraints="NO" id="4mT-Qk-iYp">
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="red_check" translatesAutoresizingMaskIntoConstraints="NO" id="4mT-Qk-iYp">
                                 <rect key="frame" x="314" y="301" width="35" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="ceo-xE-YmA"/>
@@ -224,6 +227,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zmX-XH-wW9"/>
                     </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="wcY-UT-G2x" id="WBa-m5-pzU"/>
+                        <outlet property="confirmpassTxt" destination="wSc-6m-9DC" id="vh3-lZ-REq"/>
+                        <outlet property="emailTxt" destination="yYG-Rh-UwL" id="8Sn-82-cMk"/>
+                        <outlet property="passwordTxt" destination="zYq-LB-kqS" id="DmU-HM-4mI"/>
+                        <outlet property="usernameTxt" destination="7GI-2v-SHI" id="ww6-wO-eue"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F9n-mt-T07" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -232,7 +242,7 @@
         <!--Navigation Controller-->
         <scene sceneID="jcP-qS-ZZb">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4C9-r5-Zac" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="loginVC" automaticallyAdjustsScrollViewInsets="NO" id="4C9-r5-Zac" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="HcX-w6-A8i">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>

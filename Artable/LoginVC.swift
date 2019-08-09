@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  LoginVC.swift
 //  Artable
 //
 //  Created by mac on 8/9/19.
@@ -8,14 +8,14 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class LoginVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-       //First Color 3A445C
-        
+
+        // Do any additional setup after loading the view.
     }
+    
 
 
 }
-
