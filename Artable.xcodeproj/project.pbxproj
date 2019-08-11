@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04032EE122FEF29900147907 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04032EE022FEF29900147907 /* Constants.swift */; };
+		04032EE322FEFA8300147907 /* RoundedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04032EE222FEFA8300147907 /* RoundedViews.swift */; };
 		0411350D22FD98B3005992D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0411350C22FD98B3005992D9 /* AppDelegate.swift */; };
 		0411350F22FD98B3005992D9 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0411350E22FD98B3005992D9 /* HomeVC.swift */; };
 		0411351222FD98B3005992D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0411351022FD98B3005992D9 /* Main.storyboard */; };
@@ -28,6 +30,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04032EDE22FEEAD200147907 /* Artable.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Artable.entitlements; sourceTree = "<group>"; };
+		04032EDF22FEEAE300147907 /* ArtableAdmin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ArtableAdmin.entitlements; sourceTree = "<group>"; };
+		04032EE022FEF29900147907 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		04032EE222FEFA8300147907 /* RoundedViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedViews.swift; sourceTree = "<group>"; };
 		0411350922FD98B3005992D9 /* Artable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Artable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0411350C22FD98B3005992D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0411350E22FD98B3005992D9 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
@@ -99,6 +105,7 @@
 		0411350B22FD98B3005992D9 /* Artable */ = {
 			isa = PBXGroup;
 			children = (
+				04032EDE22FEEAD200147907 /* Artable.entitlements */,
 				0411353F22FE04ED005992D9 /* Model */,
 				0411353E22FE04E6005992D9 /* View */,
 				0411353D22FE04DE005992D9 /* Controller */,
@@ -121,6 +128,7 @@
 		0411352422FD98E3005992D9 /* ArtableAdmin */ = {
 			isa = PBXGroup;
 			children = (
+				04032EDF22FEEAE300147907 /* ArtableAdmin.entitlements */,
 				0411352522FD98E3005992D9 /* AppDelegate.swift */,
 				0411352722FD98E3005992D9 /* ViewController.swift */,
 				0411352922FD98E3005992D9 /* Main.storyboard */,
@@ -170,6 +178,8 @@
 			isa = PBXGroup;
 			children = (
 				04D6006922FE178B00EF5293 /* Extensions.swift */,
+				04032EE022FEF29900147907 /* Constants.swift */,
+				04032EE222FEFA8300147907 /* RoundedViews.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -247,9 +257,19 @@
 				TargetAttributes = {
 					0411350822FD98B3005992D9 = {
 						CreatedOnToolsVersion = 10.2.1;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					0411352222FD98E3005992D9 = {
 						CreatedOnToolsVersion = 10.2.1;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -428,7 +448,9 @@
 				0411350F22FD98B3005992D9 /* HomeVC.swift in Sources */,
 				0411354322FE0591005992D9 /* RegisterVC.swift in Sources */,
 				0411350D22FD98B3005992D9 /* AppDelegate.swift in Sources */,
+				04032EE322FEFA8300147907 /* RoundedViews.swift in Sources */,
 				0411354122FE056C005992D9 /* LoginVC.swift in Sources */,
+				04032EE122FEF29900147907 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -600,7 +622,9 @@
 			baseConfigurationReference = 7EC52EAF835F77413439A980 /* Pods-Artable.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Artable/Artable.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6AGM9C9XL7;
 				INFOPLIST_FILE = Artable/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -618,7 +642,9 @@
 			baseConfigurationReference = 97BFBF06D7953E6F7BD41D36 /* Pods-Artable.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Artable/Artable.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6AGM9C9XL7;
 				INFOPLIST_FILE = Artable/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -636,7 +662,9 @@
 			baseConfigurationReference = 6A99A7585AFE78E28BEDD773 /* Pods-ArtableAdmin.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ArtableAdmin/ArtableAdmin.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6AGM9C9XL7;
 				INFOPLIST_FILE = ArtableAdmin/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -654,7 +682,9 @@
 			baseConfigurationReference = 9D9786A387F322150D7A3FA0 /* Pods-ArtableAdmin.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ArtableAdmin/ArtableAdmin.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6AGM9C9XL7;
 				INFOPLIST_FILE = ArtableAdmin/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

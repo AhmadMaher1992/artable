@@ -46,7 +46,7 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tPB-Ic-Guj">
                                         <rect key="frame" x="0.0" y="138.33333333333334" width="335" height="31"/>
@@ -54,8 +54,11 @@
                                         <state key="normal" title="Forgot Password?">
                                             <color key="titleColor" red="0.83529411764705885" green="0.39215686274509803" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="forgetPassClicked:" destination="nj2-E0-ucY" eventType="touchUpInside" id="EsM-M4-E6c"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oe7-sq-Snx">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oe7-sq-Snx" customClass="RoundedButton" customModule="Artable" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="181.33333333333331" width="335" height="40"/>
                                         <color key="backgroundColor" red="0.2274509804" green="0.2666666667" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -65,8 +68,11 @@
                                         <state key="normal" title="Log In ">
                                             <color key="titleColor" red="0.95294117647058818" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="loginClicked:" destination="nj2-E0-ucY" eventType="touchUpInside" id="si2-85-RTz"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZl-oV-DHp">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZl-oV-DHp" customClass="RoundedButton" customModule="Artable" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="233.33333333333331" width="335" height="40"/>
                                         <color key="backgroundColor" red="0.83529411764705885" green="0.39215686274509803" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -80,7 +86,7 @@
                                             <segue destination="ohZ-if-Axx" kind="show" id="5rn-KY-Tai"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aAk-z6-j5f">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aAk-z6-j5f" customClass="RoundedButton" customModule="Artable" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="285.33333333333331" width="335" height="40"/>
                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -90,6 +96,9 @@
                                         <state key="normal" title="Continue as guest ">
                                             <color key="titleColor" red="0.95294117649999999" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="guestClicked:" destination="nj2-E0-ucY" eventType="touchUpInside" id="KDE-TG-JVq"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -113,6 +122,11 @@
                         <viewLayoutGuide key="safeArea" id="15S-Wu-eFO"/>
                     </view>
                     <navigationItem key="navigationItem" id="O12-xK-cme"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="bcR-pK-ZhZ" id="u1R-tP-fuj"/>
+                        <outlet property="emailTxt" destination="hpj-Xv-ctZ" id="qLD-j1-X5Q"/>
+                        <outlet property="passTxt" destination="Tq8-GZ-LcY" id="ed7-bf-flg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sVs-vZ-DDH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -174,7 +188,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CW6-aS-C2X">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CW6-aS-C2X" customClass="RoundedButton" customModule="Artable" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="242.33333333333331" width="335" height="40"/>
                                         <color key="backgroundColor" red="0.2274509804" green="0.2666666667" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -229,8 +243,10 @@
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="wcY-UT-G2x" id="WBa-m5-pzU"/>
+                        <outlet property="confirmCheckImage" destination="4mT-Qk-iYp" id="aNf-zL-HOC"/>
                         <outlet property="confirmpassTxt" destination="wSc-6m-9DC" id="vh3-lZ-REq"/>
                         <outlet property="emailTxt" destination="yYG-Rh-UwL" id="8Sn-82-cMk"/>
+                        <outlet property="passCheckImg" destination="FFf-f3-Ex9" id="A9g-RF-Jfw"/>
                         <outlet property="passwordTxt" destination="zYq-LB-kqS" id="DmU-HM-4mI"/>
                         <outlet property="usernameTxt" destination="7GI-2v-SHI" id="ww6-wO-eue"/>
                     </connections>
