@@ -63,10 +63,14 @@ class RegisterVC: UIViewController {
             let username = usernameTxt.text , username.isNotEmpty ,
             let password = passwordTxt.text , password.isNotEmpty else { return }
         activityIndicator.startAnimating()
+        //this method used to link any currently authentication user with approved provider in this case email&password by providing credentials
         
-        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+        guard let authUser = Auth.auth().currentUser else { return }
+        let credentials = EmailAuthProvider.credential(withEmail: email, password: password)
+        authUser.link(with: credentials) { (result, error) in
             if let error = error {
-                debugPrint(error)
+                debugPrint(error.localizedDescription)
+                self.activityIndicator.stopAnimating()
                 return
             }
             self.activityIndicator.stopAnimating()
@@ -74,6 +78,8 @@ class RegisterVC: UIViewController {
             print("Successful Register")
         }
         
+       
     }
     
 }
+

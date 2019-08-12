@@ -11,12 +11,20 @@ import Firebase
 import FirebaseAuth
 
 class HomeVC: UIViewController {
+    
     @IBOutlet weak var loginOutBtn: UIBarButtonItem!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        if Auth.auth().currentUser == nil {
+            Auth.auth().signInAnonymously { (result, error) in
+                if let error = error {
+                    debugPrint(error.localizedDescription)
+                }
+            }
+        }
+        
     }
     
     func presentLoginController(){
@@ -27,20 +35,35 @@ class HomeVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         
-    }
-
-    @IBAction func loginOutClicked(_ sender: Any) {
-        if let _ =  Auth.auth().currentUser {
-            do{
-                try Auth.auth().signOut()
-                loginOutBtn.title = "LogOut"
-                presentLoginController()
-            } catch {
-                debugPrint(error.localizedDescription)
-            }
+        if let user = Auth.auth().currentUser , !user.isAnonymous {
+            loginOutBtn.title = "LogOut"
         }else{
             loginOutBtn.title = "Login"
+        }
+        
+    }
+    
+    @IBAction func loginOutClicked(_ sender: Any) {
+     
+        guard let user = Auth.auth().currentUser else { return }
+//In anonymous state we don't want to signout of firebase session
+        if  user.isAnonymous {
             presentLoginController()
+        }else {
+            
+            do{
+                try Auth.auth().signOut()
+                Auth.auth().signInAnonymously { (result, error) in
+                    if let error = error {
+                        debugPrint(error.localizedDescription)
+                        
+                    }
+                    self.presentLoginController()
+                }
+            }catch{
+                debugPrint(error.localizedDescription)
+            }
+            
         }
     }
     
