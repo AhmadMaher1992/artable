@@ -55,13 +55,22 @@ class RegisterVC: UIViewController {
             passCheckImg.image = UIImage(named: AppImages.redCheck)
             confirmCheckImage.image = UIImage(named: AppImages.redCheck)
         }
+       
         
     }
     
     @IBAction func registerClicked(_ sender: Any) {
         guard let email = emailTxt.text , email.isNotEmpty,
             let username = usernameTxt.text , username.isNotEmpty ,
-            let password = passwordTxt.text , password.isNotEmpty else { return }
+            let password = passwordTxt.text , password.isNotEmpty else {
+                simpleAlert(title: "Error", msg: "please , Fill out all fields.")
+                return
+                
+        }
+        guard let confirmPass = confirmpassTxt.text , confirmPass == password  else {
+            simpleAlert(title: "Error", msg: "Password Don't Match")
+            return
+        }
         activityIndicator.startAnimating()
         //this method used to link any currently authentication user with approved provider in this case email&password by providing credentials
         
@@ -70,6 +79,7 @@ class RegisterVC: UIViewController {
         authUser.link(with: credentials) { (result, error) in
             if let error = error {
                 debugPrint(error.localizedDescription)
+                self.handleFireAuthError(error: error)
                 self.activityIndicator.stopAnimating()
                 return
             }
