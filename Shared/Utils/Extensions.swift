@@ -18,6 +18,12 @@ extension String {
 
 extension UIViewController {
     
+    func presentViewController( storyboard: String , viewController: String){
+        let storyboard = UIStoryboard.init(name: storyboard, bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: viewController)
+        present(controller, animated: true, completion: nil)
+    }
+    
     func handleFireAuthError(error: Error){
         
         if let errorCode = AuthErrorCode(rawValue: error._code){

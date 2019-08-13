@@ -11,7 +11,7 @@ import Firebase
 import FirebaseAuth
 
 class LoginVC: UIViewController {
-
+    
     @IBOutlet weak var emailTxt: UITextField!
     @IBOutlet weak var passTxt: UITextField!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -19,8 +19,8 @@ class LoginVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-    
+        
+        
     }
     @IBAction func loginClicked(_ sender: Any) {
         guard let email = emailTxt.text , email.isNotEmpty ,
@@ -38,11 +38,16 @@ class LoginVC: UIViewController {
             }
             self.activityIndicator.stopAnimating()
             self.dismiss(animated: true, completion: nil)
-            print("Successful Login")
+            self.simpleAlert(title: "Hello", msg: "Succcessful Login")
         }
     }
     
     @IBAction func forgetPassClicked(_ sender: Any) {
+        let modalVC = ForgotPasswordVC()
+        modalVC.modalTransitionStyle = .crossDissolve
+        modalVC.modalPresentationStyle = .overCurrentContext
+        present(modalVC, animated: true, completion: nil)
+        
     }
     
     @IBAction func guestClicked(_ sender: Any) {

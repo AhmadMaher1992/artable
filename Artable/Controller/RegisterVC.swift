@@ -55,7 +55,7 @@ class RegisterVC: UIViewController {
             passCheckImg.image = UIImage(named: AppImages.redCheck)
             confirmCheckImage.image = UIImage(named: AppImages.redCheck)
         }
-       
+        
         
     }
     
@@ -78,17 +78,16 @@ class RegisterVC: UIViewController {
         let credentials = EmailAuthProvider.credential(withEmail: email, password: password)
         authUser.link(with: credentials) { (result, error) in
             if let error = error {
-                debugPrint(error.localizedDescription)
                 self.handleFireAuthError(error: error)
                 self.activityIndicator.stopAnimating()
                 return
             }
             self.activityIndicator.stopAnimating()
             self.dismiss(animated: true, completion: nil)
-            print("Successful Register")
+            self.simpleAlert(title: "Hello", msg: "SUCCESSFUL REGISTER")
         }
         
-       
+        
     }
     
 }
