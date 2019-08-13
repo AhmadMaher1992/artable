@@ -78,7 +78,7 @@ class RegisterVC: UIViewController {
         let credentials = EmailAuthProvider.credential(withEmail: email, password: password)
         authUser.link(with: credentials) { (result, error) in
             if let error = error {
-                self.handleFireAuthError(error: error)
+                Auth.auth().handleFireAuthError(error: error , vc: self)
                 self.activityIndicator.stopAnimating()
                 return
             }
