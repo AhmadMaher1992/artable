@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProductCell" rowHeight="206" id="KGk-i7-Jjw" customClass="ProductCell" customModule="Artable" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="394" height="206"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="394" height="205.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kay-dq-RfE" customClass="RoundedShadowView" customModule="Artable" customModuleProvider="target">
+                        <rect key="frame" x="8" y="8" width="378" height="189.5"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aerial_2" translatesAutoresizingMaskIntoConstraints="NO" id="s2E-9g-2nE" customClass="RoundedImageView" customModule="Artable" customModuleProvider="target">
+                                <rect key="frame" x="8" y="8" width="173.5" height="173.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="s2E-9g-2nE" secondAttribute="height" multiplier="1:1" id="aeL-zj-7GV"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YK3-MD-KIL">
+                                <rect key="frame" x="340" y="8" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="VGP-uA-ejs"/>
+                                    <constraint firstAttribute="width" constant="30" id="cWO-gX-Xt3"/>
+                                </constraints>
+                                <state key="normal" image="empty_star"/>
+                                <connections>
+                                    <action selector="favoriteClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="s8j-Zj-gib"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="RK5-Sr-hSR">
+                                <rect key="frame" x="201.5" y="44.5" width="118.5" height="101"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rwb-sl-tkU">
+                                        <rect key="frame" x="12" y="0.0" width="94.5" height="22.5"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                        <color key="textColor" red="0.2274509804" green="0.2666666667" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$99.99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rek-QG-35d">
+                                        <rect key="frame" x="11.5" y="30.5" width="95.5" height="36.5"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="28"/>
+                                        <color key="textColor" red="0.2274509804" green="0.2666666667" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aWI-6u-CUM" customClass="RoundedButton" customModule="Artable" customModuleProvider="target">
+                                        <rect key="frame" x="8.5" y="75" width="102" height="26"/>
+                                        <color key="backgroundColor" red="0.83529411760000005" green="0.3921568627" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <inset key="contentEdgeInsets" minX="10" minY="4" maxX="10" maxY="4"/>
+                                        <state key="normal" title="Add To Cart">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addToCartClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="B5r-92-8Ie"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="s2E-9g-2nE" secondAttribute="bottom" constant="8" id="0Uh-vU-MJz"/>
+                            <constraint firstItem="s2E-9g-2nE" firstAttribute="leading" secondItem="Kay-dq-RfE" secondAttribute="leading" constant="8" id="3MP-MN-XgB"/>
+                            <constraint firstItem="s2E-9g-2nE" firstAttribute="top" secondItem="Kay-dq-RfE" secondAttribute="top" constant="8" id="DCt-Ny-EHO"/>
+                            <constraint firstItem="RK5-Sr-hSR" firstAttribute="centerY" secondItem="Kay-dq-RfE" secondAttribute="centerY" id="FJF-Nu-zkp"/>
+                            <constraint firstItem="RK5-Sr-hSR" firstAttribute="leading" secondItem="s2E-9g-2nE" secondAttribute="trailing" constant="20" id="VSK-25-hxd"/>
+                            <constraint firstItem="YK3-MD-KIL" firstAttribute="top" secondItem="Kay-dq-RfE" secondAttribute="top" constant="8" id="VVe-MI-Gre"/>
+                            <constraint firstAttribute="trailing" secondItem="YK3-MD-KIL" secondAttribute="trailing" constant="8" id="ljM-HI-lCZ"/>
+                            <constraint firstItem="YK3-MD-KIL" firstAttribute="leading" secondItem="RK5-Sr-hSR" secondAttribute="trailing" constant="20" id="o6Q-Vn-e8h"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="Kay-dq-RfE" secondAttribute="bottom" constant="8" id="2sq-dJ-h6b"/>
+                    <constraint firstItem="Kay-dq-RfE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="AHA-ZC-9gT"/>
+                    <constraint firstAttribute="trailing" secondItem="Kay-dq-RfE" secondAttribute="trailing" constant="8" id="CFP-df-qfn"/>
+                    <constraint firstItem="Kay-dq-RfE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="RRx-GV-fPB"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="productImg" destination="s2E-9g-2nE" id="6E1-L1-9QJ"/>
+                <outlet property="productPrice" destination="Rek-QG-35d" id="eg2-La-cwg"/>
+                <outlet property="productTilte" destination="rwb-sl-tkU" id="TAl-VB-eVm"/>
+            </connections>
+            <point key="canvasLocation" x="185.50724637681162" y="99.776785714285708"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="aerial_2" width="1000" height="1778"/>
+        <image name="empty_star" width="47" height="47"/>
+    </resources>
+</document>
