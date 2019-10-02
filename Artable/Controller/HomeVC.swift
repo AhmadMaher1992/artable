@@ -33,7 +33,7 @@ class HomeVC: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(UINib(nibName: Identifiers.CategoryCell, bundle: nil), forCellWithReuseIdentifier: Identifiers.CategoryCell)
-        let category = Category.init(name: "Shoes", id: "123", imgUrl: "https://images.unsplash.com/photo-1565778287157-522dd69d006e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60", isActive: true, timeStamp: Timestamp())
+        let category = Category.init(name: "Nature", id: "123", imgUrl: "https://www.istockphoto.com/photo/collection-of-female-shoes-on-wooden-floor-gm670069378-122493607", isActive: true, timeStamp: Timestamp())
          categories.append(category)
         
     }
