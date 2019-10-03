@@ -19,9 +19,12 @@ class HomeVC: UIViewController {
     //variables
     var categories = [Category]()
     var selectedCategory: Category!
+    var db: Firestore!
+    var listener: ListenerRegistration!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        db = Firestore.firestore()
         if Auth.auth().currentUser == nil {
             Auth.auth().signInAnonymously { (result, error) in
                 if let error = error {
@@ -32,9 +35,11 @@ class HomeVC: UIViewController {
         }
         collectionView.dataSource = self
         collectionView.delegate = self
+        
+        
         collectionView.register(UINib(nibName: Identifiers.CategoryCell, bundle: nil), forCellWithReuseIdentifier: Identifiers.CategoryCell)
-        let category = Category.init(name: "Nature", id: "123", imgUrl: "https://www.istockphoto.com/photo/collection-of-female-shoes-on-wooden-floor-gm670069378-122493607", isActive: true, timeStamp: Timestamp())
-         categories.append(category)
+        
+        
         
     }
     
@@ -51,15 +56,17 @@ class HomeVC: UIViewController {
         }else{
             loginOutBtn.title = "Login"
         }
+        fetchCollection()
         
     }
     
     @IBAction func loginOutClicked(_ sender: Any) {
-     
+        
         guard let user = Auth.auth().currentUser else { return }
-//In anonymous state we don't want to signout of firebase session
+        //In anonymous state we don't want to signout of firebase session
         if  user.isAnonymous {
             presentLoginController()
+        
         }else {
             
             do{
@@ -73,14 +80,51 @@ class HomeVC: UIViewController {
                     self.presentLoginController()
                 }
             }catch{
-              Auth.auth().handleFireAuthError(error: error , vc: self)
+                Auth.auth().handleFireAuthError(error: error , vc: self)
                 debugPrint(error.localizedDescription)
             }
             
         }
     }
     
+    func fetchDocument(){
+        
+        let docRef = db.collection("Categories").document("FqX7G4qAI7p7eHaHAmTj")
+         listener = docRef.addSnapshotListener { (snap, error) in
+            guard let data = snap?.data() else {return}
+            self.categories.removeAll()
+            let newCategory = Category.init(data: data)
+            self.categories.append(newCategory)
+            self.collectionView.reloadData()
+        }
+       
+    }
+    
+    func fetchCollection(){
+        let collectionRef = db.collection("Categories")
+        listener = collectionRef.addSnapshotListener { (snap, error) in
+            guard let documents = snap?.documents else { return}
+            print(snap?.documentChanges.count)
+            self.categories.removeAll()
+            for document in documents {
+                let data = document.data()
+                let newCategory = Category.init(data: data)
+                self.categories.append(newCategory)
+                self.collectionView.reloadData()
+            }
+        }
+        
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        listener.remove()
+    }
+    
 }
+
+
+
 
 extension HomeVC : UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -88,7 +132,7 @@ extension HomeVC : UICollectionViewDelegate , UICollectionViewDataSource , UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-       if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Identifiers.CategoryCell, for: indexPath) as? CategoryCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Identifiers.CategoryCell, for: indexPath) as? CategoryCell {
             cell.configureCell(category: categories[indexPath.item])
             return cell
             
@@ -110,7 +154,7 @@ extension HomeVC : UICollectionViewDelegate , UICollectionViewDataSource , UICol
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Segues.ToProducts {
             if let destination = segue.destination as? ProductsVC{
-                   destination.category = selectedCategory
+                destination.category = selectedCategory
             }
         }
     }
