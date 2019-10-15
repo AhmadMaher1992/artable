@@ -27,6 +27,8 @@
 		0400A1BF2304424500630B07 /* ProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0400A1BB2304424500630B07 /* ProductCell.xib */; };
 		04032EE122FEF29900147907 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04032EE022FEF29900147907 /* Constants.swift */; };
 		04032EE322FEFA8300147907 /* RoundedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04032EE222FEFA8300147907 /* RoundedViews.swift */; };
+		041067152355BBBF00768C10 /* ProductDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041067132355BBBF00768C10 /* ProductDetailVC.swift */; };
+		041067162355BBBF00768C10 /* ProductDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 041067142355BBBF00768C10 /* ProductDetailVC.xib */; };
 		0411350D22FD98B3005992D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0411350C22FD98B3005992D9 /* AppDelegate.swift */; };
 		0411350F22FD98B3005992D9 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0411350E22FD98B3005992D9 /* HomeVC.swift */; };
 		0411351222FD98B3005992D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0411351022FD98B3005992D9 /* Main.storyboard */; };
@@ -62,6 +64,8 @@
 		04032EDF22FEEAE300147907 /* ArtableAdmin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ArtableAdmin.entitlements; sourceTree = "<group>"; };
 		04032EE022FEF29900147907 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		04032EE222FEFA8300147907 /* RoundedViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedViews.swift; sourceTree = "<group>"; };
+		041067132355BBBF00768C10 /* ProductDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailVC.swift; sourceTree = "<group>"; };
+		041067142355BBBF00768C10 /* ProductDetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductDetailVC.xib; sourceTree = "<group>"; };
 		0411350922FD98B3005992D9 /* Artable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Artable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0411350C22FD98B3005992D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0411350E22FD98B3005992D9 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
@@ -114,6 +118,8 @@
 			children = (
 				0400A19B2302A1B000630B07 /* ForgotPasswordVC.swift */,
 				0400A19C2302A1B000630B07 /* ForgotPasswordVC.xib */,
+				041067132355BBBF00768C10 /* ProductDetailVC.swift */,
+				041067142355BBBF00768C10 /* ProductDetailVC.xib */,
 			);
 			path = XIBs;
 			sourceTree = "<group>";
@@ -212,9 +218,9 @@
 			children = (
 				0411350C22FD98B3005992D9 /* AppDelegate.swift */,
 				0411350E22FD98B3005992D9 /* HomeVC.swift */,
+				0400A1AE23043F4400630B07 /* ProductsVC.swift */,
 				0411354022FE056C005992D9 /* LoginVC.swift */,
 				0411354222FE0591005992D9 /* RegisterVC.swift */,
-				0400A1AE23043F4400630B07 /* ProductsVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -367,6 +373,7 @@
 				0411353922FDEFA1005992D9 /* GoogleService-Info.plist in Resources */,
 				0411351222FD98B3005992D9 /* Main.storyboard in Resources */,
 				0400A19E2302A1B000630B07 /* ForgotPasswordVC.xib in Resources */,
+				041067162355BBBF00768C10 /* ProductDetailVC.xib in Resources */,
 				0411353722FDA54D005992D9 /* LoginStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -468,6 +475,7 @@
 				0400A1A32302C6DA00630B07 /* Category.swift in Sources */,
 				04D6006A22FE178B00EF5293 /* Extensions.swift in Sources */,
 				0411350F22FD98B3005992D9 /* HomeVC.swift in Sources */,
+				041067152355BBBF00768C10 /* ProductDetailVC.swift in Sources */,
 				0411354322FE0591005992D9 /* RegisterVC.swift in Sources */,
 				0400A1BC2304424500630B07 /* ProductCell.swift in Sources */,
 				0411350D22FD98B3005992D9 /* AppDelegate.swift in Sources */,

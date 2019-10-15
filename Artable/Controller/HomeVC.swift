@@ -26,23 +26,37 @@ class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         db = Firestore.firestore()
-        if Auth.auth().currentUser == nil {
-            Auth.auth().signInAnonymously { (result, error) in
-                if let error = error {
-                    Auth.auth().handleFireAuthError(error: error , vc: self)
-                    debugPrint(error.localizedDescription)
-                }
-            }
-        }
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        
-        
-        collectionView.register(UINib(nibName: Identifiers.CategoryCell, bundle: nil), forCellWithReuseIdentifier: Identifiers.CategoryCell)
-        
-        
-        
+        setUpCollectionView()
+        setUpAnonymousUser()
+//        setUpNavigationBar()
     }
+    
+    func setUpCollectionView(){
+        collectionView.dataSource = self
+              collectionView.delegate = self
+              collectionView.register(UINib(nibName: Identifiers.CategoryCell, bundle: nil), forCellWithReuseIdentifier: Identifiers.CategoryCell)
+    }
+    
+    func setUpAnonymousUser(){
+        if Auth.auth().currentUser == nil {
+                  Auth.auth().signInAnonymously { (result, error) in
+                      if let error = error {
+                          Auth.auth().handleFireAuthError(error: error , vc: self)
+                          debugPrint(error.localizedDescription)
+                      }
+                  }
+              }
+    }
+    
+//    func setUpNavigationBar(){
+//        guard let font = UIFont(name: "futura", size: 26 ) else { return }
+//        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white , NSAttributedString.Key.font: font]
+//
+//    }
+//
+    
+    
+    
     
     func presentLoginController(){
         let storyboard = UIStoryboard.init(name: Storyboards.LoginStoryboard, bundle: nil)

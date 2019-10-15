@@ -26,8 +26,6 @@ class RegisterVC: UIViewController {
         passwordTxt.addTarget(self, action: #selector(textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
         confirmpassTxt.addTarget(self, action: #selector(textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
         
-        
-        
     }
     
     @objc func textFieldDidChange(_ textField: UITextField){
