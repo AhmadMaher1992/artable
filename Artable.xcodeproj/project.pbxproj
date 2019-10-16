@@ -35,7 +35,7 @@
 		0411351422FD98B4005992D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0411351322FD98B4005992D9 /* Assets.xcassets */; };
 		0411351722FD98B4005992D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0411351522FD98B4005992D9 /* LaunchScreen.storyboard */; };
 		0411352622FD98E3005992D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0411352522FD98E3005992D9 /* AppDelegate.swift */; };
-		0411352822FD98E3005992D9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0411352722FD98E3005992D9 /* ViewController.swift */; };
+		0411352822FD98E3005992D9 /* AdminHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0411352722FD98E3005992D9 /* AdminHomeVC.swift */; };
 		0411352B22FD98E3005992D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0411352922FD98E3005992D9 /* Main.storyboard */; };
 		0411353022FD98E4005992D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0411352E22FD98E4005992D9 /* LaunchScreen.storyboard */; };
 		0411353522FD98F7005992D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0411351322FD98B4005992D9 /* Assets.xcassets */; };
@@ -44,6 +44,13 @@
 		0411353B22FDF865005992D9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0411353A22FDF865005992D9 /* GoogleService-Info.plist */; };
 		0411354122FE056C005992D9 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0411354022FE056C005992D9 /* LoginVC.swift */; };
 		0411354322FE0591005992D9 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0411354222FE0591005992D9 /* RegisterVC.swift */; };
+		044406E32356297A0057DDF9 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0411350E22FD98B3005992D9 /* HomeVC.swift */; };
+		044406E423562DAE0057DDF9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D6006922FE178B00EF5293 /* Extensions.swift */; };
+		044406E523562DB70057DDF9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04032EE022FEF29900147907 /* Constants.swift */; };
+		044406E623562DBB0057DDF9 /* RoundedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04032EE222FEFA8300147907 /* RoundedViews.swift */; };
+		044406E723562DC70057DDF9 /* ProductDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041067132355BBBF00768C10 /* ProductDetailVC.swift */; };
+		044406E823562E000057DDF9 /* ProductDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 041067142355BBBF00768C10 /* ProductDetailVC.xib */; };
+		044406EA235647290057DDF9 /* AddEditCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044406E9235647290057DDF9 /* AddEditCategoryVC.swift */; };
 		04D6006A22FE178B00EF5293 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D6006922FE178B00EF5293 /* Extensions.swift */; };
 		D163E8C2C40CC603F86F0045 /* Pods_Artable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5C64B8F3CDE5B5B70E34F5D /* Pods_Artable.framework */; };
 		DBAA833EB2F79EA1D9E573C6 /* Pods_ArtableAdmin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 957C4B291AF87660AFE263ED /* Pods_ArtableAdmin.framework */; };
@@ -75,7 +82,7 @@
 		0411351822FD98B4005992D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0411352322FD98E3005992D9 /* ArtableAdmin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArtableAdmin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0411352522FD98E3005992D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0411352722FD98E3005992D9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0411352722FD98E3005992D9 /* AdminHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminHomeVC.swift; sourceTree = "<group>"; };
 		0411352A22FD98E3005992D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0411352F22FD98E4005992D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0411353122FD98E4005992D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -84,6 +91,7 @@
 		0411353A22FDF865005992D9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0411354022FE056C005992D9 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginVC.swift; path = ../LoginVC.swift; sourceTree = "<group>"; };
 		0411354222FE0591005992D9 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
+		044406E9235647290057DDF9 /* AddEditCategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditCategoryVC.swift; sourceTree = "<group>"; };
 		04D6006922FE178B00EF5293 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		6A99A7585AFE78E28BEDD773 /* Pods-ArtableAdmin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArtableAdmin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArtableAdmin/Pods-ArtableAdmin.debug.xcconfig"; sourceTree = "<group>"; };
 		7EC52EAF835F77413439A980 /* Pods-Artable.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Artable.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Artable/Pods-Artable.debug.xcconfig"; sourceTree = "<group>"; };
@@ -193,8 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				04032EDF22FEEAE300147907 /* ArtableAdmin.entitlements */,
-				0411352522FD98E3005992D9 /* AppDelegate.swift */,
-				0411352722FD98E3005992D9 /* ViewController.swift */,
+				044406EB235647610057DDF9 /* Controller */,
 				0411352922FD98E3005992D9 /* Main.storyboard */,
 				0411352E22FD98E4005992D9 /* LaunchScreen.storyboard */,
 				0411353A22FDF865005992D9 /* GoogleService-Info.plist */,
@@ -240,6 +247,16 @@
 			);
 			name = Model;
 			path = ../Artable/Model;
+			sourceTree = "<group>";
+		};
+		044406EB235647610057DDF9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0411352522FD98E3005992D9 /* AppDelegate.swift */,
+				0411352722FD98E3005992D9 /* AdminHomeVC.swift */,
+				044406E9235647290057DDF9 /* AddEditCategoryVC.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		04D6006822FE176400EF5293 /* Utils */ = {
@@ -388,6 +405,7 @@
 				0400A1BF2304424500630B07 /* ProductCell.xib in Resources */,
 				0411353522FD98F7005992D9 /* Assets.xcassets in Resources */,
 				0411352B22FD98E3005992D9 /* Main.storyboard in Resources */,
+				044406E823562E000057DDF9 /* ProductDetailVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,13 +511,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				044406E623562DBB0057DDF9 /* RoundedViews.swift in Sources */,
 				0400A1A12302BB4800630B07 /* Firebase+Utils.swift in Sources */,
-				0411352822FD98E3005992D9 /* ViewController.swift in Sources */,
+				044406E523562DB70057DDF9 /* Constants.swift in Sources */,
+				0411352822FD98E3005992D9 /* AdminHomeVC.swift in Sources */,
 				0400A1B023043F4400630B07 /* ProductsVC.swift in Sources */,
+				044406E32356297A0057DDF9 /* HomeVC.swift in Sources */,
 				0411352622FD98E3005992D9 /* AppDelegate.swift in Sources */,
+				044406E423562DAE0057DDF9 /* Extensions.swift in Sources */,
+				044406EA235647290057DDF9 /* AddEditCategoryVC.swift in Sources */,
 				0400A1A52302C6E200630B07 /* Category.swift in Sources */,
 				0400A1BD2304424500630B07 /* ProductCell.swift in Sources */,
 				0400A1AA2302D03100630B07 /* CategoryCell.swift in Sources */,
+				044406E723562DC70057DDF9 /* ProductDetailVC.swift in Sources */,
 				0400A1B32304404E00630B07 /* Product.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
