@@ -10,6 +10,7 @@ import UIKit
 import Kingfisher
 
 class ProductCell: UITableViewCell {
+    
     @IBOutlet weak var productImg: RoundedImageView!
     @IBOutlet weak var productTilte: UILabel!
     @IBOutlet weak var productPrice: UILabel!
@@ -23,7 +24,16 @@ class ProductCell: UITableViewCell {
     func configureCell(product: Product)  {
         productTilte.text = product.name
         if let url = URL(string: product.imgUrl){
-            productImg.kf.setImage(with: url)
+            let placeholder = UIImage(named: "Placeholder")
+            let options: KingfisherOptionsInfo = [KingfisherOptionsInfoItem.transition(.fade(0.2))]
+            productImg.kf.indicatorType = .activity
+            productImg.kf.setImage(with: url, placeholder: placeholder, options: options)
+            
+        }
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        if let price = formatter.string(from: product.price as NSNumber) {
+            productPrice.text = price
         }
     }
     

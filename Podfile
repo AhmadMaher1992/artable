@@ -23,6 +23,7 @@ shared_pods
 
  pod 'Stripe'
  pod 'Alamofire'
+ pod 'Firebase/Storage'
 
 end
 

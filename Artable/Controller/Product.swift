@@ -31,5 +31,31 @@ struct Product {
         self.timeStamp = data["timeStamp"] as? Timestamp ?? Timestamp()
         self.stock = data["stock"] as? Int ?? 0
     }
+    init(name: String , id: String , category: String , price: Double , productDescription: String , imgUrl: String , timeStamp: Timestamp = Timestamp() , stock: Int = 0) {
+        self.name = name
+        self.id = id
+        self.category = category
+        self.price = price
+        self.productDescription = productDescription
+        self.imgUrl = imgUrl
+        self.timeStamp = timeStamp
+        self.stock = stock
+    }
+    
+    func modelToData(product: Product) -> [String : Any]{
+        let data: [String: Any] = [
+            "name" : product.name ,
+            "id" : product.id ,
+            "category" : product.category ,
+            "price" : product.price ,
+            "productDescription" : product.productDescription ,
+            "imgUrl" : product.imgUrl ,
+            "timeStamp" : product.timeStamp ,
+            "stock" : product.stock
+        ]
+        return data
+        
+    }
+    
     
 }
