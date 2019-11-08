@@ -54,6 +54,10 @@
 		044406EA235647290057DDF9 /* AddEditCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044406E9235647290057DDF9 /* AddEditCategoryVC.swift */; };
 		04D6006A22FE178B00EF5293 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D6006922FE178B00EF5293 /* Extensions.swift */; };
 		04DFFAD6235B01C000A53C84 /* AddEditProductsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DFFAD5235B01C000A53C84 /* AddEditProductsVC.swift */; };
+		04DFFAD82361E9C800A53C84 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DFFAD72361E9C800A53C84 /* User.swift */; };
+		04DFFADB236440D300A53C84 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DFFADA236440D300A53C84 /* UserService.swift */; };
+		04DFFADC2365CF5700A53C84 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DFFADA236440D300A53C84 /* UserService.swift */; };
+		04DFFADD2365CF9C00A53C84 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DFFAD72361E9C800A53C84 /* User.swift */; };
 		D163E8C2C40CC603F86F0045 /* Pods_Artable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5C64B8F3CDE5B5B70E34F5D /* Pods_Artable.framework */; };
 		DBAA833EB2F79EA1D9E573C6 /* Pods_ArtableAdmin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 957C4B291AF87660AFE263ED /* Pods_ArtableAdmin.framework */; };
 /* End PBXBuildFile section */
@@ -97,6 +101,8 @@
 		044406E9235647290057DDF9 /* AddEditCategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditCategoryVC.swift; sourceTree = "<group>"; };
 		04D6006922FE178B00EF5293 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		04DFFAD5235B01C000A53C84 /* AddEditProductsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditProductsVC.swift; sourceTree = "<group>"; };
+		04DFFAD72361E9C800A53C84 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = ArtableAdmin/Controller/User.swift; sourceTree = SOURCE_ROOT; };
+		04DFFADA236440D300A53C84 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		6A99A7585AFE78E28BEDD773 /* Pods-ArtableAdmin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArtableAdmin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArtableAdmin/Pods-ArtableAdmin.debug.xcconfig"; sourceTree = "<group>"; };
 		7EC52EAF835F77413439A980 /* Pods-Artable.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Artable.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Artable/Pods-Artable.debug.xcconfig"; sourceTree = "<group>"; };
 		957C4B291AF87660AFE263ED /* Pods_ArtableAdmin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArtableAdmin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -178,6 +184,7 @@
 		0411350B22FD98B3005992D9 /* Artable */ = {
 			isa = PBXGroup;
 			children = (
+				04DFFAD9236440B900A53C84 /* Services */,
 				0400A19A2302A17300630B07 /* XIBs */,
 				04032EDE22FEEAD200147907 /* Artable.entitlements */,
 				0411353E22FE04E6005992D9 /* View */,
@@ -248,6 +255,7 @@
 			children = (
 				0400A1A22302C6DA00630B07 /* Category.swift */,
 				0400A1B12304404E00630B07 /* Product.swift */,
+				04DFFAD72361E9C800A53C84 /* User.swift */,
 			);
 			name = Model;
 			path = ../Artable/Model;
@@ -274,6 +282,14 @@
 				0400A19F2302B98700630B07 /* Firebase+Utils.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		04DFFAD9236440B900A53C84 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				04DFFADA236440D300A53C84 /* UserService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		4F96D0AAB72092E32372B09E /* Pods */ = {
@@ -499,7 +515,9 @@
 				0400A1A32302C6DA00630B07 /* Category.swift in Sources */,
 				04D6006A22FE178B00EF5293 /* Extensions.swift in Sources */,
 				0411350F22FD98B3005992D9 /* HomeVC.swift in Sources */,
+				04DFFAD82361E9C800A53C84 /* User.swift in Sources */,
 				041067152355BBBF00768C10 /* ProductDetailVC.swift in Sources */,
+				04DFFADB236440D300A53C84 /* UserService.swift in Sources */,
 				0411354322FE0591005992D9 /* RegisterVC.swift in Sources */,
 				0400A1BC2304424500630B07 /* ProductCell.swift in Sources */,
 				0411350D22FD98B3005992D9 /* AppDelegate.swift in Sources */,
@@ -523,6 +541,7 @@
 				0411352822FD98E3005992D9 /* AdminHomeVC.swift in Sources */,
 				0400A1B023043F4400630B07 /* ProductsVC.swift in Sources */,
 				044406E32356297A0057DDF9 /* HomeVC.swift in Sources */,
+				04DFFADC2365CF5700A53C84 /* UserService.swift in Sources */,
 				0411352622FD98E3005992D9 /* AppDelegate.swift in Sources */,
 				0430C23E235AF8DF00C948FE /* AdminProductsVC.swift in Sources */,
 				044406E423562DAE0057DDF9 /* Extensions.swift in Sources */,
@@ -530,6 +549,7 @@
 				0400A1A52302C6E200630B07 /* Category.swift in Sources */,
 				0400A1BD2304424500630B07 /* ProductCell.swift in Sources */,
 				0400A1AA2302D03100630B07 /* CategoryCell.swift in Sources */,
+				04DFFADD2365CF9C00A53C84 /* User.swift in Sources */,
 				044406E723562DC70057DDF9 /* ProductDetailVC.swift in Sources */,
 				04DFFAD6235B01C000A53C84 /* AddEditProductsVC.swift in Sources */,
 				0400A1B32304404E00630B07 /* Product.swift in Sources */,

@@ -73,18 +73,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="s2E-9g-2nE" secondAttribute="bottom" constant="8" id="0Uh-vU-MJz"/>
                             <constraint firstItem="s2E-9g-2nE" firstAttribute="leading" secondItem="Kay-dq-RfE" secondAttribute="leading" constant="8" id="3MP-MN-XgB"/>
                             <constraint firstItem="s2E-9g-2nE" firstAttribute="top" secondItem="Kay-dq-RfE" secondAttribute="top" constant="8" id="DCt-Ny-EHO"/>
                             <constraint firstItem="RK5-Sr-hSR" firstAttribute="centerY" secondItem="Kay-dq-RfE" secondAttribute="centerY" id="FJF-Nu-zkp"/>
                             <constraint firstItem="RK5-Sr-hSR" firstAttribute="leading" secondItem="s2E-9g-2nE" secondAttribute="trailing" constant="20" id="VSK-25-hxd"/>
                             <constraint firstItem="YK3-MD-KIL" firstAttribute="top" secondItem="Kay-dq-RfE" secondAttribute="top" constant="8" id="VVe-MI-Gre"/>
+                            <constraint firstAttribute="bottom" secondItem="s2E-9g-2nE" secondAttribute="bottom" constant="8" id="lfw-gP-n3T"/>
                             <constraint firstAttribute="trailing" secondItem="YK3-MD-KIL" secondAttribute="trailing" constant="8" id="ljM-HI-lCZ"/>
                             <constraint firstItem="YK3-MD-KIL" firstAttribute="leading" secondItem="RK5-Sr-hSR" secondAttribute="trailing" constant="20" id="o6Q-Vn-e8h"/>
                         </constraints>
                     </view>
                 </subviews>
-                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="Kay-dq-RfE" secondAttribute="bottom" constant="8" id="2sq-dJ-h6b"/>
                     <constraint firstItem="Kay-dq-RfE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="AHA-ZC-9gT"/>
@@ -95,6 +94,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="favoriteBtn" destination="YK3-MD-KIL" id="QhP-HD-DaE"/>
                 <outlet property="productImg" destination="s2E-9g-2nE" id="6E1-L1-9QJ"/>
                 <outlet property="productPrice" destination="Rek-QG-35d" id="eg2-La-cwg"/>
                 <outlet property="productTilte" destination="rwb-sl-tkU" id="TAl-VB-eVm"/>

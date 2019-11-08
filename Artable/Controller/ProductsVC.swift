@@ -11,6 +11,7 @@ import FirebaseFirestore
 
 class ProductsVC: UIViewController {
     
+    
     //Outlets
     
     @IBOutlet weak var tableview: UITableView!
@@ -20,20 +21,27 @@ class ProductsVC: UIViewController {
     var category: Category!
     var db: Firestore!
     var listener: ListenerRegistration!
-    
+    var showFavorites = false
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableview.dataSource = self
         tableview.delegate = self
         db = Firestore.firestore()
-        tableview.register(UINib(nibName: Identifiers.ProductCell, bundle: nil), forCellReuseIdentifier: Identifiers.ProductCell)
+        self.tableview.register(UINib(nibName: Identifiers.ProductCell, bundle: nil), forCellReuseIdentifier: Identifiers.ProductCell)
+        self.tableview.register(UINib(nibName: Identifiers.ProductCell, bundle: nil), forCellReuseIdentifier: Identifiers.ProductCell)
         setUpQuery()
         
     }
-    
+ 
     func setUpQuery(){
-        listener = db.collection("Products").whereField("category", isEqualTo: category.id).order(by: "timeStamp" , descending: true).addSnapshotListener({ (snap, error) in
+        var ref: Query!
+        if showFavorites {
+            ref = db.collection("Users").document(UserService.user!.id).collection("favorites")
+        } else{
+            ref = db.collection("Products").whereField("category", isEqualTo: category.id).order(by: "timeStamp" , descending: true)
+        }
+        listener = ref.addSnapshotListener({ (snap, error) in
             
             if let error = error {
                 debugPrint(error.localizedDescription)
@@ -51,7 +59,7 @@ class ProductsVC: UIViewController {
                     self.onDocumentModified(product: newProduct , change: change)
                 case .removed:
                     self.onDocumentRemoved(change: change)
-               
+                    
                 default:
                     print("No")
                 }
@@ -65,7 +73,7 @@ class ProductsVC: UIViewController {
     func onDocumentAdded(product: Product , change: DocumentChange){
         let newindex = Int(change.newIndex)
         products.insert(product, at: newindex)
-        tableview.insertRows(at: [IndexPath(row: newindex, section: 0 )], with: .fade)
+        self.tableview.insertRows(at: [IndexPath(row: newindex, section: 0 )], with: .fade)
         
     }
     func onDocumentModified(product: Product , change: DocumentChange){
@@ -73,14 +81,14 @@ class ProductsVC: UIViewController {
         let oldIndex = Int(change.oldIndex)
         if newIndex == oldIndex {
             products[newIndex] = product
-            tableview.reloadRows(at: [IndexPath(row: newIndex, section: 0)], with: .none)
+            self.tableview.reloadRows(at: [IndexPath(row: newIndex, section: 0)], with: .none)
             
         }else{
             products.remove(at: oldIndex)
             products.insert(product, at: newIndex)
             let newIndex = IndexPath(row: newIndex, section: 0)
             let oldIndex = IndexPath(row: oldIndex, section: 0)
-            tableview.moveRow(at: oldIndex, to: newIndex)
+            self.tableview.moveRow(at: oldIndex, to: newIndex)
             
             
         }
@@ -89,27 +97,37 @@ class ProductsVC: UIViewController {
         let oldIndex = Int(change.oldIndex)
         products.remove(at: oldIndex)
         let index = IndexPath(row: oldIndex, section: 0)
-        tableview.deleteRows(at: [index], with: .left)
+        self.tableview.deleteRows(at: [index], with: .left)
         
     }
-
+    
     
 }
 
 
 
 
-
-
-
-extension ProductsVC: UITableViewDelegate , UITableViewDataSource {
+extension ProductsVC: UITableViewDelegate , UITableViewDataSource , ProductCellDelegate {
+    
+    func productFavorited(product: Product) {
+        UserService.favoriteSelected(product: product)
+        //get index corresponding to that product
+        guard let index = products.firstIndex(of: product) else {
+            return
+        }
+        self.tableview.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+        
+    }
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return products.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableview.dequeueReusableCell(withIdentifier: Identifiers.ProductCell, for: indexPath) as? ProductCell {
-            cell.configureCell(product: products[indexPath.row])
+            //I will be the delegate for each committed configure cell
+            cell.configureCell(product: products[indexPath.row], delegate: self)
             return cell
         }
         return UITableViewCell()

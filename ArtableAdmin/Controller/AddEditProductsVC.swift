@@ -16,8 +16,8 @@ class AddEditProductsVC: UIViewController {
     var selectedCategory: Category!
     
     var name = ""
-     var price = 0.0
-     var productDescription = ""
+    var price = 0.0
+    var productDescription = ""
     
     
     //Outlets
@@ -37,13 +37,14 @@ class AddEditProductsVC: UIViewController {
         productImgView.isUserInteractionEnabled = true
         productImgView.clipsToBounds = true
         productImgView.addGestureRecognizer(tap)
+        //Editing case
         if let product = productToEdit {
             productNameTxt.text = product.name
             productDescTxt.text = product.productDescription
             productpriceTxt.text = String(product.price)
             addBtn.setTitle("SaveChanges", for: .normal)
             descLbl.text = "Product Description."
-            if let url = URL(string: product.imgUrl){
+            if let url = URL(string: product.imageUrl as String){
                 productImgView.contentMode = .scaleAspectFill
                 productImgView.kf.setImage(with: url)
             }
@@ -66,9 +67,9 @@ class AddEditProductsVC: UIViewController {
         
         guard let image = productImgView.image ,
             let name = productNameTxt.text , name.isNotEmpty ,
-            let description = productDescTxt.text , description.isNotEmpty ,
-            let priceTxt = productpriceTxt.text , priceTxt.isNotEmpty ,
-            let price = Double(priceTxt)
+            let description = productDescTxt.text , description.isNotEmpty,
+            let priceStr = productpriceTxt.text , priceStr.isNotEmpty ,
+            let price = Double(priceStr)
             
             else {
                 simpleAlert(title: "Missing Field!", msg: "Please Fill Out All Fields.")
@@ -93,14 +94,16 @@ class AddEditProductsVC: UIViewController {
                 self.handleError(error: error, msg: "Unable To Upload Image.")
                 return
             }
-     //Step5: Once the image Uploaded , retrieve Download URL
+            //Step5: Once the image Uploaded , retrieve Download URL
             imageRef.downloadURL { (url, error) in
                 if let error = error {
                     self.handleError(error: error, msg: "Unable To Retrieve Image Url")
+                    
                     return
                 }
                 guard let url = url else { return }
-                 //Step6: Upload new Document Document to the FireStore Products Collection
+                
+                //Step6: Upload new Document Document to the FireStore Products Collection
                 self.uploadDocument(url: url.absoluteString)
             }
         }
@@ -135,10 +138,10 @@ class AddEditProductsVC: UIViewController {
     }
     
     func handleError(error: Error , msg: String){
-          debugPrint(error.localizedDescription)
-          activityIndicator.stopAnimating()
-          simpleAlert(title: "Error", msg: msg)
-      }
+        debugPrint(error.localizedDescription)
+        activityIndicator.stopAnimating()
+        simpleAlert(title: "Error", msg: msg)
+    }
     
     
 }

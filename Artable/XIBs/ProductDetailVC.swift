@@ -29,7 +29,7 @@ class ProductDetailVC: UIViewController {
        
         productTilte.text = product.name
         productDescription.text = product.productDescription
-        if let url = URL(string: product.imgUrl ){
+        if let url = URL(string: product.imageUrl ){
             productImg.kf.setImage(with: url)
         }
         let formatter = NumberFormatter()

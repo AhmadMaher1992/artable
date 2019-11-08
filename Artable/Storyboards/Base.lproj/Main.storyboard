@@ -59,7 +59,11 @@
                         </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem image="bar_button_cart" id="nOT-bd-43v"/>
-                            <barButtonItem image="bar_button_star" id="Zl0-25-GM6"/>
+                            <barButtonItem image="bar_button_star" id="Zl0-25-GM6">
+                                <connections>
+                                    <action selector="favoritesClicked:" destination="BYZ-38-t0r" id="dcl-Mh-hGj"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem id="TI9-zX-YoW"/>
                         </rightBarButtonItems>
                     </navigationItem>
@@ -68,6 +72,7 @@
                         <outlet property="collectionView" destination="gST-aj-NAK" id="kMo-KX-1PJ"/>
                         <outlet property="loginOutBtn" destination="ggA-M3-Ivh" id="ppw-ch-4UH"/>
                         <segue destination="H2m-oc-RCN" kind="show" identifier="toProductsVC" id="du8-uo-jhd"/>
+                        <segue destination="H2m-oc-RCN" kind="show" identifier="ToFavorites" id="ehi-3o-tNA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -104,6 +109,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Kn6-ab-Idu"/>
                     </view>
+                    <navigationItem key="navigationItem" id="0kg-vA-iks"/>
                     <connections>
                         <outlet property="tableview" destination="Jgh-GM-e7w" id="MoD-J9-DaO"/>
                     </connections>
@@ -145,4 +151,7 @@
         <image name="bar_button_star" width="26" height="26"/>
         <image name="bg_cat3" width="1500" height="1875"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="ehi-3o-tNA"/>
+    </inferredMetricsTieBreakers>
 </document>

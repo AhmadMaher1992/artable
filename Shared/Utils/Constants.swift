@@ -21,6 +21,9 @@ struct ViewControllerID {
 struct AppImages {
     static let greenCheck = "green_check"
     static let redCheck = "red_check"
+    static let filledStar = "filled_star"
+    static let emptyStar = "empty_star"
+    static let placeholder = "placeholder"
 }
 
 struct AppColors {
@@ -39,4 +42,5 @@ struct Segues{
     static let toAddEditCategory = "toAddEditCategory"
     static let toEditCategory = "toEditCategory"
     static let toAddEditProduct = "toAddEditProduct"
+    static let ToFavorites = "ToFavorites"
 }

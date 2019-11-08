@@ -70,23 +70,63 @@ class RegisterVC: UIViewController {
             return
         }
         activityIndicator.startAnimating()
-        //this method used to link any currently authentication user with approved provider in this case email&password by providing credentials
-        
-        guard let authUser = Auth.auth().currentUser else { return }
-        let credentials = EmailAuthProvider.credential(withEmail: email, password: password)
-        authUser.link(with: credentials) { (result, error) in
+        Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
             if let error = error {
                 Auth.auth().handleFireAuthError(error: error , vc: self)
                 self.activityIndicator.stopAnimating()
                 return
             }
+            guard let firUser = result?.user else { return }
+            let artUser = User.init(id: firUser.uid, email: email, username: username, stripeId: "")
+            //Upload to FireStore
+            self.createFireStoreUser(user: artUser)
+            
+        }
+        
+        
+    }
+    func createFireStoreUser(user: User){
+        //Step1: Create Document Reference
+        let newUserRef = Firestore.firestore().collection("Users").document(user.id)
+        //Step2: Create Model Data
+        let data = User.modelToData(user: user)
+        //Step3: Upload To FireStore
+        newUserRef.setData(data) { (error) in
+            if let error = error {
+                Auth.auth().handleFireAuthError(error: error, vc: self)
+                debugPrint("Error SigIn: \(error.localizedDescription))")
+            }else{
+                self.dismiss(animated: true, completion: nil)
+            }
             self.activityIndicator.stopAnimating()
-            self.dismiss(animated: true, completion: nil)
-            self.simpleAlert(title: "Hello", msg: "SUCCESSFUL REGISTER")
         }
         
         
     }
     
+    
+    
+    
+    
+    /*
+     //this method used to link any currently authentication user with approved provider in this case email&password by providing credentials
+     
+     guard let authUser = Auth.auth().currentUser else { return }
+     let credentials = EmailAuthProvider.credential(withEmail: email, password: password)
+     authUser.link(with: credentials) { (result, error) in
+     if let error = error {
+     Auth.auth().handleFireAuthError(error: error , vc: self)
+     self.activityIndicator.stopAnimating()
+     return
+     }
+     self.activityIndicator.stopAnimating()
+     self.dismiss(animated: true, completion: nil)
+     self.simpleAlert(title: "Hello", msg: "SUCCESSFUL REGISTER")
+     }
+     
+     */
 }
+
+
+
 

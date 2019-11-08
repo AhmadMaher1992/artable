@@ -34,6 +34,7 @@ class AddEditCategoryVC: UIViewController {
             nameTxt.text = category.name
             addBtn.setTitle("SaveChanges", for: .normal)
             if let url = URL(string: category.imgUrl) {
+                categoryImg.contentMode = .scaleAspectFill
                 categoryImg.kf.setImage(with: url)
             }
         }
@@ -88,6 +89,7 @@ class AddEditCategoryVC: UIViewController {
     func uploadDocument(url: String){
         var docRef: DocumentReference!
         var category = Category.init(name: nameTxt.text!, id: "", imgUrl: url, timeStamp: Timestamp())
+        
         if let categoryToEdit = categoryToEdit {
             //Editing Case
             docRef = Firestore.firestore().collection("Categories").document(categoryToEdit.id)
